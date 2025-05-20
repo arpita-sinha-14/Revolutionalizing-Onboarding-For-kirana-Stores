@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .progress {
+            width: 0;
+            height: 20px;
+            background-color: #4caf50;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Welcome To e-VASTU</h2>
+        <div class="container">
+            <div class="form-container" id="form-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <form id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="step" id="step-1">
+                        <h2>Step 1: Verify Aadhar</h2>
+                        <input type="text" id="signup-adharno" placeholder="Aadhar number" required><br>
+                        <button type="button" onclick="sendOtp()">Send OTP</button><br>
+                        <input type="text" id="adharotp" placeholder="Verify OTP" required><br>
+                        <button type="button" onclick="nextStep(2)">Next</button>
+                    </div>
+                    <div class="step" id="step-2" style="display:none;">
+                        <h2>Step 2: Mobile Number</h2>
+                        <input type="text" id="mobno" placeholder="Mobile Number" required>
+                        <button type="button" onclick="sendMobOtp()">Send OTP</button><br>
+                        <input type="text" id="mobotp" placeholder="Verify OTP" required><br>
+                        <button type="button" onclick="prevStep(1)">Previous</button>
+                        <button type="button" onclick="nextStep(3)">Next</button>
+                    </div>
+                    <div class="step" id="step-3" style="display:none;">
+                        <h2>Step 3: Bank Account</h2>
+                        <label for="bankName">Select Bank:</label>
+                        <select id="bankName" required>
+                            <option value="">Select your bank</option>
+                            <option value="bank1">State Bank Of India</option>
+                            <option value="bank2">Axis Bank</option>
+                            <option value="bank3">Bank 3</option>
+                            <option value="bank4">Bank 4</option>
+                        </select><br>
+                        
+                        <button type="button" onclick="nextStep(4)">Link bank account</button>
+                    </div>
+                    <div class="step" id="step-4" style="display:none;">
+                        <h2>BANK ACCOUNT LINKED SUCCESSFULLY !</h2>
+                        
+                        <button type="button" onclick="nextStep(5)">Next</button>
+                    </div>
+                    <div class="step" id="step-5" style="display:none;">
+                        <h2>Step 5: Seller Store Name</h2>
+                        <input type="text" id="storename" placeholder="Store Name" required>
+                        <button type="button" onclick="prevStep(4)">Previous</button>
+                        <button type="button" onclick="nextStep(6)">Next</button>
+                    </div>
+                    <div class="step" id="step-6" style="display:none;">
+                        <h2>Step 6: Store Address</h2>
+                        <input type="text" id="address" placeholder="Enter Store Address" required>
+                        
+                        <button type="button" onclick="nextStep(7)">confirm</button>
+                        <button type="button" onclick="prevStep(6)">Previous</button>
+                    </div>
+                    <div class="step" id="step-7" style="display:none;">
+                        <h2>Step 7: GST Number</h2>
+                        <input type="text" id="gstno" placeholder="Enter GST Number" required>
+                        <button type="button" onclick="prevStep(6)">Previous</button>
+                        <button type="submit" ><a href="index.html">Sign Up</a></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
